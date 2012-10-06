@@ -1,19 +1,19 @@
 //
-//  EXDetailViewController.m
+//  EXExperimentViewController.m
 //  Exp
 //
 //  Created by Matt Mollison on 10/6/12.
 //  Copyright (c) 2012 Matt Mollison. All rights reserved.
 //
 
-#import "EXDetailViewController.h"
+#import "EXExperimentViewController.h"
 
-@interface EXDetailViewController ()
+@interface EXExperimentViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
 @end
 
-@implementation EXDetailViewController
+@implementation EXExperimentViewController
 
 #pragma mark - Managing the detail item
 

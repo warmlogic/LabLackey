@@ -1,5 +1,5 @@
 //
-//  EXDetailViewController.h
+//  EXExperimentViewController.h
 //  Exp
 //
 //  Created by Matt Mollison on 10/6/12.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EXDetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface EXExperimentViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
 

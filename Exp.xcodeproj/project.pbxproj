@@ -18,8 +18,8 @@
 		C9DA08FA1620BA0C00CF2E2E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9DA08F91620BA0C00CF2E2E /* Default-568h@2x.png */; };
 		C9DA08FD1620BA0C00CF2E2E /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9DA08FB1620BA0C00CF2E2E /* MainStoryboard_iPhone.storyboard */; };
 		C9DA09001620BA0C00CF2E2E /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9DA08FE1620BA0C00CF2E2E /* MainStoryboard_iPad.storyboard */; };
-		C9DA09031620BA0C00CF2E2E /* EXMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09021620BA0C00CF2E2E /* EXMasterViewController.m */; };
-		C9DA09061620BA0C00CF2E2E /* EXDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09051620BA0C00CF2E2E /* EXDetailViewController.m */; };
+		C9DA09031620BA0C00CF2E2E /* EXExperimentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09021620BA0C00CF2E2E /* EXExperimentListViewController.m */; };
+		C9DA09061620BA0C00CF2E2E /* EXExperimentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09051620BA0C00CF2E2E /* EXExperimentViewController.m */; };
 		C9DA090E1620BA0D00CF2E2E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DA090D1620BA0D00CF2E2E /* SenTestingKit.framework */; };
 		C9DA090F1620BA0D00CF2E2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DA08E31620BA0C00CF2E2E /* UIKit.framework */; };
 		C9DA09101620BA0D00CF2E2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DA08E51620BA0C00CF2E2E /* Foundation.framework */; };
@@ -53,10 +53,10 @@
 		C9DA08F91620BA0C00CF2E2E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C9DA08FC1620BA0C00CF2E2E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		C9DA08FF1620BA0C00CF2E2E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		C9DA09011620BA0C00CF2E2E /* EXMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXMasterViewController.h; sourceTree = "<group>"; };
-		C9DA09021620BA0C00CF2E2E /* EXMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXMasterViewController.m; sourceTree = "<group>"; };
-		C9DA09041620BA0C00CF2E2E /* EXDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXDetailViewController.h; sourceTree = "<group>"; };
-		C9DA09051620BA0C00CF2E2E /* EXDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXDetailViewController.m; sourceTree = "<group>"; };
+		C9DA09011620BA0C00CF2E2E /* EXExperimentListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXExperimentListViewController.h; sourceTree = "<group>"; };
+		C9DA09021620BA0C00CF2E2E /* EXExperimentListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXExperimentListViewController.m; sourceTree = "<group>"; };
+		C9DA09041620BA0C00CF2E2E /* EXExperimentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXExperimentViewController.h; sourceTree = "<group>"; };
+		C9DA09051620BA0C00CF2E2E /* EXExperimentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXExperimentViewController.m; sourceTree = "<group>"; };
 		C9DA090C1620BA0D00CF2E2E /* ExpTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DA090D1620BA0D00CF2E2E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C9DA09151620BA0D00CF2E2E /* ExpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExpTests-Info.plist"; sourceTree = "<group>"; };
@@ -126,10 +126,10 @@
 				C9DA08F31620BA0C00CF2E2E /* EXAppDelegate.m */,
 				C9DA08FB1620BA0C00CF2E2E /* MainStoryboard_iPhone.storyboard */,
 				C9DA08FE1620BA0C00CF2E2E /* MainStoryboard_iPad.storyboard */,
-				C9DA09011620BA0C00CF2E2E /* EXMasterViewController.h */,
-				C9DA09021620BA0C00CF2E2E /* EXMasterViewController.m */,
-				C9DA09041620BA0C00CF2E2E /* EXDetailViewController.h */,
-				C9DA09051620BA0C00CF2E2E /* EXDetailViewController.m */,
+				C9DA09011620BA0C00CF2E2E /* EXExperimentListViewController.h */,
+				C9DA09021620BA0C00CF2E2E /* EXExperimentListViewController.m */,
+				C9DA09041620BA0C00CF2E2E /* EXExperimentViewController.h */,
+				C9DA09051620BA0C00CF2E2E /* EXExperimentViewController.m */,
 				C9DA08EA1620BA0C00CF2E2E /* Supporting Files */,
 			);
 			path = Exp;
@@ -282,8 +282,8 @@
 			files = (
 				C9DA08F01620BA0C00CF2E2E /* main.m in Sources */,
 				C9DA08F41620BA0C00CF2E2E /* EXAppDelegate.m in Sources */,
-				C9DA09031620BA0C00CF2E2E /* EXMasterViewController.m in Sources */,
-				C9DA09061620BA0C00CF2E2E /* EXDetailViewController.m in Sources */,
+				C9DA09031620BA0C00CF2E2E /* EXExperimentListViewController.m in Sources */,
+				C9DA09061620BA0C00CF2E2E /* EXExperimentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
