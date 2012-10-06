@@ -7,12 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EXExperimentPhase.h"
 
 @interface EXExperiment : NSObject
 
 @property NSString *name;
-@property NSString *instructions;
+@property UIImage *cross;
+@property (readonly) EXExperimentPhase *currentPhase;
+
+@property UIImage *image;
 
 -(id)initWithName:(NSString *)name;
+
+-(void)currentPhaseCompleted;
 
 @end

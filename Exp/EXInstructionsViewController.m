@@ -33,13 +33,20 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = _experiment.name;
-   _instructionsView.text = _experiment.instructions;
+    _instructionsView.text = _experiment.currentPhase.instructions;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showExperiment"]) {
+        [[segue destinationViewController] setExperiment:_experiment];
+    }
 }
 
 @end

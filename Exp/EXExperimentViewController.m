@@ -9,6 +9,9 @@
 #import "EXExperimentViewController.h"
 
 @interface EXExperimentViewController ()
+
+@property (nonatomic) NSInteger nCompletedTrials;
+
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
 @end
@@ -17,10 +20,11 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setExperiment:(EXExperiment *)experiment
 {
-    if (_experiment != newDetailItem) {
-        _experiment = newDetailItem;
+    if (_experiment != experiment) {
+        _experiment = experiment;
+        _nCompletedTrials = 0;
         
         // Update the view.
         [self configureView];
@@ -36,8 +40,46 @@
     // Update the user interface for the detail item.
 
     if (self.experiment) {
-        self.detailDescriptionLabel.text = self.experiment.instructions;
+        self.imageView.image = _experiment.cross;
     }
+}
+
+-(void)startExperiment {
+    [self startFixation];
+}
+
+-(void)startFixation {
+    self.imageView.image = _experiment.cross;
+    
+    [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.fixationDuration target:self selector:@selector(startISI) userInfo:nil repeats:NO];
+}
+
+-(void)startISI {
+    self.imageView.image = nil;
+    
+    [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.interStimulusInterval target:self selector:@selector(presentStimulus) userInfo:nil repeats:NO];
+}
+
+-(void)presentStimulus {
+    self.imageView.image = _experiment.image;
+    
+    if (_nCompletedTrials < _experiment.currentPhase.nTrials) {
+        _nCompletedTrials++;
+        [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.stimulusDuration target:self selector:@selector(startFixation) userInfo:nil repeats:NO];
+    } else if (_nCompletedTrials == _experiment.currentPhase.nTrials) {
+        [_experiment currentPhaseCompleted];
+        NSLog(@"parent view controller: %@", self.presentingViewController);
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:^(){}];
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self startExperiment];
 }
 
 - (void)viewDidLoad
@@ -45,6 +87,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning

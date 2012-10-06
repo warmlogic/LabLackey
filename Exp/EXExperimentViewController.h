@@ -14,5 +14,6 @@
 
 @property (strong, nonatomic) EXExperiment *experiment;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end

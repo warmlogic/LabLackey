@@ -27,6 +27,10 @@
 		C9DA091B1620BA0D00CF2E2E /* ExpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA091A1620BA0D00CF2E2E /* ExpTests.m */; };
 		C9DA09261620C4E400CF2E2E /* EXExperiment.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09251620C4E400CF2E2E /* EXExperiment.m */; };
 		C9DA09291620CD9800CF2E2E /* EXInstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09281620CD9800CF2E2E /* EXInstructionsViewController.m */; };
+		C9DA092D1620D8B700CF2E2E /* Goats.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C9DA092B1620D8B700CF2E2E /* Goats.JPG */; };
+		C9DA092E1620D8B700CF2E2E /* Foosball.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DA092C1620D8B700CF2E2E /* Foosball.jpg */; };
+		C9DA09301620DDA100CF2E2E /* cross.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DA092F1620DDA100CF2E2E /* cross.jpg */; };
+		C9DA09331620F02C00CF2E2E /* EXExperimentPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09321620F02C00CF2E2E /* EXExperimentPhase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,11 @@
 		C9DA09251620C4E400CF2E2E /* EXExperiment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXExperiment.m; sourceTree = "<group>"; };
 		C9DA09271620CD9800CF2E2E /* EXInstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXInstructionsViewController.h; sourceTree = "<group>"; };
 		C9DA09281620CD9800CF2E2E /* EXInstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXInstructionsViewController.m; sourceTree = "<group>"; };
+		C9DA092B1620D8B700CF2E2E /* Goats.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Goats.JPG; sourceTree = "<group>"; };
+		C9DA092C1620D8B700CF2E2E /* Foosball.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Foosball.jpg; sourceTree = "<group>"; };
+		C9DA092F1620DDA100CF2E2E /* cross.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cross.jpg; sourceTree = "<group>"; };
+		C9DA09311620F02C00CF2E2E /* EXExperimentPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXExperimentPhase.h; sourceTree = "<group>"; };
+		C9DA09321620F02C00CF2E2E /* EXExperimentPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXExperimentPhase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +107,7 @@
 		C9DA08D41620BA0C00CF2E2E = {
 			isa = PBXGroup;
 			children = (
+				C9DA092A1620D8B700CF2E2E /* Images */,
 				C9DA08E91620BA0C00CF2E2E /* Exp */,
 				C9DA09131620BA0D00CF2E2E /* ExpTests */,
 				C9DA08E21620BA0C00CF2E2E /* Frameworks */,
@@ -140,6 +150,8 @@
 				C9DA09051620BA0C00CF2E2E /* EXExperimentViewController.m */,
 				C9DA09241620C4E400CF2E2E /* EXExperiment.h */,
 				C9DA09251620C4E400CF2E2E /* EXExperiment.m */,
+				C9DA09311620F02C00CF2E2E /* EXExperimentPhase.h */,
+				C9DA09321620F02C00CF2E2E /* EXExperimentPhase.m */,
 				C9DA08EA1620BA0C00CF2E2E /* Supporting Files */,
 			);
 			path = Exp;
@@ -148,6 +160,7 @@
 		C9DA08EA1620BA0C00CF2E2E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9DA092F1620DDA100CF2E2E /* cross.jpg */,
 				C9DA08EB1620BA0C00CF2E2E /* Exp-Info.plist */,
 				C9DA08EC1620BA0C00CF2E2E /* InfoPlist.strings */,
 				C9DA08EF1620BA0C00CF2E2E /* main.m */,
@@ -176,6 +189,15 @@
 				C9DA09161620BA0D00CF2E2E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C9DA092A1620D8B700CF2E2E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C9DA092B1620D8B700CF2E2E /* Goats.JPG */,
+				C9DA092C1620D8B700CF2E2E /* Foosball.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +278,9 @@
 				C9DA08FA1620BA0C00CF2E2E /* Default-568h@2x.png in Resources */,
 				C9DA08FD1620BA0C00CF2E2E /* MainStoryboard_iPhone.storyboard in Resources */,
 				C9DA09001620BA0C00CF2E2E /* MainStoryboard_iPad.storyboard in Resources */,
+				C9DA092D1620D8B700CF2E2E /* Goats.JPG in Resources */,
+				C9DA092E1620D8B700CF2E2E /* Foosball.jpg in Resources */,
+				C9DA09301620DDA100CF2E2E /* cross.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +321,7 @@
 				C9DA09061620BA0C00CF2E2E /* EXExperimentViewController.m in Sources */,
 				C9DA09261620C4E400CF2E2E /* EXExperiment.m in Sources */,
 				C9DA09291620CD9800CF2E2E /* EXInstructionsViewController.m in Sources */,
+				C9DA09331620F02C00CF2E2E /* EXExperimentPhase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
