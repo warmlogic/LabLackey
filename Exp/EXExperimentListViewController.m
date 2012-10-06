@@ -10,8 +10,10 @@
 
 #import "EXExperimentViewController.h"
 
+#import "EXExperiment.h"
+
 @interface EXExperimentListViewController () {
-    NSArray *_objects;
+    NSArray *_experiments;
 }
 @end
 
@@ -31,9 +33,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    _objects = @[@"Experiment 1"];
+    _experiments = @[[[EXExperiment alloc] initWithName:@"Recognition Memory Experiment"]];
     
     self.detailViewController = (EXExperimentViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    self.title = @"Experiments";
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,15 +65,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return _experiments.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSString *object = _objects[indexPath.row];
-    cell.textLabel.text = object;
+    EXExperiment *experiment = _experiments[indexPath.row];
+    cell.textLabel.text = experiment.name;
     return cell;
 }
 
@@ -107,20 +111,20 @@
 }
 */
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSDate *object = _objects[indexPath.row];
-        self.detailViewController.detailItem = object;
-    }
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+//        EXExperiment *experiment = _experiments[indexPath.row];
+//        self.detailViewController.experiment = experiment;
+//    }
+//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showExperiment"]) {
+    if ([[segue identifier] isEqualToString:@"showInstructions"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+        EXExperiment *experiment = _experiments[indexPath.row];
+        [[segue destinationViewController] setExperiment:experiment];
     }
 }
 

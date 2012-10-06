@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "EXExperiment.h"
+
 @interface EXExperimentViewController : UIViewController <UISplitViewControllerDelegate>
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) EXExperiment *experiment;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

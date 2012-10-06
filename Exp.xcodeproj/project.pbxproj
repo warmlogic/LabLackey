@@ -25,6 +25,8 @@
 		C9DA09101620BA0D00CF2E2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DA08E51620BA0C00CF2E2E /* Foundation.framework */; };
 		C9DA09181620BA0D00CF2E2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9DA09161620BA0D00CF2E2E /* InfoPlist.strings */; };
 		C9DA091B1620BA0D00CF2E2E /* ExpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA091A1620BA0D00CF2E2E /* ExpTests.m */; };
+		C9DA09261620C4E400CF2E2E /* EXExperiment.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09251620C4E400CF2E2E /* EXExperiment.m */; };
+		C9DA09291620CD9800CF2E2E /* EXInstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09281620CD9800CF2E2E /* EXInstructionsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,10 @@
 		C9DA09171620BA0D00CF2E2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9DA09191620BA0D00CF2E2E /* ExpTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpTests.h; sourceTree = "<group>"; };
 		C9DA091A1620BA0D00CF2E2E /* ExpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExpTests.m; sourceTree = "<group>"; };
+		C9DA09241620C4E400CF2E2E /* EXExperiment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXExperiment.h; sourceTree = "<group>"; };
+		C9DA09251620C4E400CF2E2E /* EXExperiment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXExperiment.m; sourceTree = "<group>"; };
+		C9DA09271620CD9800CF2E2E /* EXInstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXInstructionsViewController.h; sourceTree = "<group>"; };
+		C9DA09281620CD9800CF2E2E /* EXInstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXInstructionsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,11 +131,15 @@
 				C9DA08F21620BA0C00CF2E2E /* EXAppDelegate.h */,
 				C9DA08F31620BA0C00CF2E2E /* EXAppDelegate.m */,
 				C9DA08FB1620BA0C00CF2E2E /* MainStoryboard_iPhone.storyboard */,
+				C9DA09271620CD9800CF2E2E /* EXInstructionsViewController.h */,
+				C9DA09281620CD9800CF2E2E /* EXInstructionsViewController.m */,
 				C9DA08FE1620BA0C00CF2E2E /* MainStoryboard_iPad.storyboard */,
 				C9DA09011620BA0C00CF2E2E /* EXExperimentListViewController.h */,
 				C9DA09021620BA0C00CF2E2E /* EXExperimentListViewController.m */,
 				C9DA09041620BA0C00CF2E2E /* EXExperimentViewController.h */,
 				C9DA09051620BA0C00CF2E2E /* EXExperimentViewController.m */,
+				C9DA09241620C4E400CF2E2E /* EXExperiment.h */,
+				C9DA09251620C4E400CF2E2E /* EXExperiment.m */,
 				C9DA08EA1620BA0C00CF2E2E /* Supporting Files */,
 			);
 			path = Exp;
@@ -284,6 +294,8 @@
 				C9DA08F41620BA0C00CF2E2E /* EXAppDelegate.m in Sources */,
 				C9DA09031620BA0C00CF2E2E /* EXExperimentListViewController.m in Sources */,
 				C9DA09061620BA0C00CF2E2E /* EXExperimentViewController.m in Sources */,
+				C9DA09261620C4E400CF2E2E /* EXExperiment.m in Sources */,
+				C9DA09291620CD9800CF2E2E /* EXInstructionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,8 +19,8 @@
 
 - (void)setDetailItem:(id)newDetailItem
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+    if (_experiment != newDetailItem) {
+        _experiment = newDetailItem;
         
         // Update the view.
         [self configureView];
@@ -35,8 +35,8 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+    if (self.experiment) {
+        self.detailDescriptionLabel.text = self.experiment.instructions;
     }
 }
 
