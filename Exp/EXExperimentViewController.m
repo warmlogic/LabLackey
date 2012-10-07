@@ -73,11 +73,6 @@
     }
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-}
-
 -(void)viewDidAppear:(BOOL)animated {
     [self startExperiment];
 }

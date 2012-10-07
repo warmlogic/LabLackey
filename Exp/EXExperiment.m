@@ -42,4 +42,12 @@
     _currentPhaseIndex++;
 }
 
+-(BOOL)isCompleted {
+    return _currentPhaseIndex >= _experimentPhases.count;
+}
+
+-(void)reset {
+    _currentPhaseIndex = 0;
+}
+
 @end

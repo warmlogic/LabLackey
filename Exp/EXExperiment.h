@@ -14,11 +14,14 @@
 @property NSString *name;
 @property UIImage *cross;
 @property (readonly) EXExperimentPhase *currentPhase;
+@property (readonly) BOOL isCompleted;
 
 @property UIImage *image;
 
 -(id)initWithName:(NSString *)name;
 
 -(void)currentPhaseCompleted;
+
+-(void)reset;
 
 @end

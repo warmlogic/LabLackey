@@ -33,7 +33,15 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = _experiment.name;
-    _instructionsView.text = _experiment.currentPhase.instructions;
+    
+    if (!_experiment.isCompleted) {
+        _instructionsView.text = _experiment.currentPhase.instructions;
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    } else {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        [_experiment reset];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
