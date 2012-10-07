@@ -25,10 +25,10 @@
         _cross = [UIImage imageNamed:@"cross.jpg"];
         _image = [UIImage imageNamed:@"Goats.JPG"];
             
-        EXExperimentPhase *phase1 = [EXExperimentPhase studyPhase];
-        EXExperimentPhase *phase2 = [EXExperimentPhase testPhase];
+        EXExperimentPhase *study = [EXExperimentPhase studyPhase];
+        EXExperimentPhase *test = [EXExperimentPhase testPhase];
         
-        _experimentPhases = [NSArray arrayWithObjects:phase1, phase2, nil];
+        _experimentPhases = [NSArray arrayWithObjects:test, study, nil];
         _currentPhaseIndex = 0;
     }
     return self;

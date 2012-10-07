@@ -83,17 +83,20 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:^(){}];
 }
 
+-(void)waitForResponse {
+    waitingForResponse = YES;
+    self.imageView.image = [UIImage imageNamed:@"foosball.jpg"]; /* @"response" -> response.png or response@2x.png depending on device*/
+}
+
 -(IBAction)handleTap:(UITapGestureRecognizer *)recognizer
 {
     if (waitingForResponse) {
+        CGPoint location = [recognizer locationInView:self.imageView];
+        
+        NSLog(location.x<=self.imageView.frame.size.width/2?@"left side":@"right side");
         [self startFixation];
         waitingForResponse = NO;
     }
-}
-
--(void)waitForResponse {
-    waitingForResponse = YES;
-    self.imageView.image = nil;
 }
 
 #pragma mark - View Life Cycle
