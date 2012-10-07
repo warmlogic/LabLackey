@@ -57,20 +57,26 @@
 -(void)startISI {
     self.imageView.image = nil;
     
-    [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.interStimulusInterval target:self selector:@selector(presentStimulus) userInfo:nil repeats:NO];
+    if (_nCompletedTrials < _experiment.currentPhase.nTrials) {
+        [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.interStimulusInterval target:self selector:@selector(presentStimulus) userInfo:nil repeats:NO];
+    } else {
+        [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.interStimulusInterval target:self selector:@selector(finishPhase) userInfo:nil repeats:NO];
+    }
 }
 
 -(void)presentStimulus {
     self.imageView.image = _experiment.image;
-    
-    if (_nCompletedTrials < _experiment.currentPhase.nTrials) {
-        _nCompletedTrials++;
-        [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.stimulusDuration target:self selector:@selector(startFixation) userInfo:nil repeats:NO];
-    } else if (_nCompletedTrials == _experiment.currentPhase.nTrials) {
-        [_experiment currentPhaseCompleted];
-        NSLog(@"parent view controller: %@", self.presentingViewController);
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:^(){}];
-    }
+    _nCompletedTrials++;
+    [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.stimulusDuration target:self selector:@selector(startFixation) userInfo:nil repeats:NO];
+}
+
+-(void)finishPhase {
+    [_experiment currentPhaseCompleted];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:^(){}];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
