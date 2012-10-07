@@ -8,7 +8,9 @@
 
 #import "EXExperimentViewController.h"
 
-@interface EXExperimentViewController ()
+@interface EXExperimentViewController () {
+    BOOL waitingForResponse;
+}
 
 @property (nonatomic) NSInteger nCompletedTrials;
 
@@ -46,6 +48,7 @@
 
 -(void)startExperiment {
     [self startFixation];
+    waitingForResponse = NO;
 }
 
 -(void)startFixation {
@@ -67,13 +70,33 @@
 -(void)presentStimulus {
     self.imageView.image = _experiment.image;
     _nCompletedTrials++;
-    [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.stimulusDuration target:self selector:@selector(startFixation) userInfo:nil repeats:NO];
+    if (_experiment.currentPhase.responseRequired == YES) {
+        [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.stimulusDuration target:self selector:@selector(waitForResponse) userInfo:nil repeats:NO];
+    }
+    else  {
+        [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.stimulusDuration target:self selector:@selector(startFixation) userInfo:nil repeats:NO];
+    }
 }
 
 -(void)finishPhase {
     [_experiment currentPhaseCompleted];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:^(){}];
 }
+
+-(IBAction)handleTap:(UITapGestureRecognizer *)recognizer
+{
+    if (waitingForResponse) {
+        [self startFixation];
+        waitingForResponse = NO;
+    }
+}
+
+-(void)waitForResponse {
+    waitingForResponse = YES;
+    self.imageView.image = nil;
+}
+
+#pragma mark - View Life Cycle
 
 -(void)viewWillAppear:(BOOL)animated {
     [[UIApplication sharedApplication] setStatusBarHidden:YES];

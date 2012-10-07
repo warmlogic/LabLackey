@@ -15,6 +15,7 @@
 @property NSTimeInterval interStimulusInterval;
 @property NSTimeInterval stimulusDuration;
 @property NSInteger nTrials;
+@property BOOL responseRequired;
 
 +(EXExperimentPhase *)testPhase;
 +(EXExperimentPhase *)studyPhase;

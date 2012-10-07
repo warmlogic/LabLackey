@@ -71,7 +71,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ToS-TZ-fok"/>
+                            <imageView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ToS-TZ-fok">
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="OVS-bY-CFJ" appends="YES" id="iu7-RO-7iT"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -88,6 +93,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="OVS-bY-CFJ">
+                    <connections>
+                        <action selector="handleTap:" destination="21" id="Qna-Ij-CTB"/>
+                        <outlet property="delegate" destination="21" id="Nat-sJ-IQh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1590" y="64"/>
         </scene>
@@ -151,6 +162,7 @@
         <class className="EXExperimentViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EXExperimentViewController.h"/>
             <relationships>
+                <relationship kind="action" name="handleTap:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
         </class>

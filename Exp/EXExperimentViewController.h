@@ -10,10 +10,12 @@
 
 #import "EXExperiment.h"
 
-@interface EXExperimentViewController : UIViewController <UISplitViewControllerDelegate>
+@interface EXExperimentViewController : UIViewController <UIGestureRecognizerDelegate, UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) EXExperiment *experiment;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+-(IBAction)handleTap:(id)sender;
 
 @end

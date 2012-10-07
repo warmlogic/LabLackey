@@ -25,12 +25,14 @@
 +(EXExperimentPhase *)testPhase {
     EXExperimentPhase *phase = [[EXExperimentPhase alloc] init];
     phase.instructions = @"The instructions for the testing phase,";
+    phase.responseRequired = YES;
     return phase;
 }
 
 +(EXExperimentPhase *)studyPhase {
     EXExperimentPhase *phase = [[EXExperimentPhase alloc] init];
     phase.instructions = @"The instructions for the study phase,";
+    phase.responseRequired = NO;
     return phase;
 }
 
