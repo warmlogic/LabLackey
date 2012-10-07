@@ -50,4 +50,8 @@
     _currentPhaseIndex = 0;
 }
 
+-(void)logResponse:(EXResponse *)response {
+    NSLog(@"%@, %@, %f, %f, %f",response.time, response.side, response.location.x, response.location.y, response.reactionTime);
+}
+
 @end

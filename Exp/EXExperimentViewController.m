@@ -7,12 +7,15 @@
 //
 
 #import "EXExperimentViewController.h"
+#import "EXResponse.h"
 
 @interface EXExperimentViewController () {
     BOOL waitingForResponse;
 }
 
 @property (nonatomic) NSInteger nCompletedTrials;
+
+@property NSDate *responseStartTime;
 
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
@@ -86,6 +89,7 @@
 -(void)waitForResponse {
     waitingForResponse = YES;
     self.imageView.image = [UIImage imageNamed:@"foosball.jpg"]; /* @"response" -> response.png or response@2x.png depending on device*/
+    _responseStartTime = [NSDate date];
 }
 
 -(IBAction)handleTap:(UITapGestureRecognizer *)recognizer
@@ -93,9 +97,17 @@
     if (waitingForResponse) {
         CGPoint location = [recognizer locationInView:self.imageView];
         
-        NSLog(location.x<=self.imageView.frame.size.width/2?@"left side":@"right side");
+                
+        EXResponse *response = [[EXResponse alloc] init];
+        response.time = [NSDate date];
+        response.location = location;
+        response.side = location.x<=self.imageView.frame.size.width/2?@"left":@"right";
+        response.reactionTime = [response.time timeIntervalSinceDate:_responseStartTime];
+        
         [self startFixation];
         waitingForResponse = NO;
+        
+        [_experiment logResponse:response];
     }
 }
 

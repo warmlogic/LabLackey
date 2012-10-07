@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EXExperimentPhase.h"
+#import "EXResponse.h"
 
 @interface EXExperiment : NSObject
 
@@ -23,5 +24,7 @@
 -(void)currentPhaseCompleted;
 
 -(void)reset;
+
+-(void)logResponse:(EXResponse *)response;
 
 @end
