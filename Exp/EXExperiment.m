@@ -28,7 +28,7 @@
         EXExperimentPhase *study = [EXExperimentPhase studyPhase];
         EXExperimentPhase *test = [EXExperimentPhase testPhase];
         
-        _experimentPhases = [NSArray arrayWithObjects:test, study, nil];
+        _experimentPhases = [NSArray arrayWithObjects:study, test, nil];
         _currentPhaseIndex = 0;
     }
     return self;
