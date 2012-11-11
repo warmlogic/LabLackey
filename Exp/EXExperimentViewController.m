@@ -88,7 +88,7 @@
 
 -(void)waitForResponse {
     waitingForResponse = YES;
-    self.imageView.image = [UIImage imageNamed:@"foosball.jpg"]; /* @"response" -> response.png or response@2x.png depending on device*/
+    self.imageView.image = [UIImage imageNamed:@"leftright"]; /* @"response" -> response.png or response@2x.png depending on device*/
     _responseStartTime = [NSDate date];
 }
 
@@ -97,7 +97,7 @@
     if (waitingForResponse) {
         CGPoint location = [recognizer locationInView:self.imageView];
         
-                
+        
         EXResponse *response = [[EXResponse alloc] init];
         response.time = [NSDate date];
         response.location = location;

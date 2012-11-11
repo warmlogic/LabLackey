@@ -16,6 +16,7 @@
 @property UIImage *cross;
 @property (readonly) EXExperimentPhase *currentPhase;
 @property (readonly) BOOL isCompleted;
+@property (nonatomic) NSMutableArray *experimentData;
 
 @property UIImage *image;
 

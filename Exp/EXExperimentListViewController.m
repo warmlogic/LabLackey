@@ -124,6 +124,13 @@
     if ([[segue identifier] isEqualToString:@"showInstructions"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         EXExperiment *experiment = _experiments[indexPath.row];
+        
+        // create the array to hold data about the entire experiment
+        experiment.experimentData = [[NSMutableArray alloc] initWithObjects:[NSDate date], nil];
+        
+        // debug
+        NSLog(@"experimentData: %@", experiment.experimentData);
+        
         [[segue destinationViewController] setExperiment:experiment];
     }
 }

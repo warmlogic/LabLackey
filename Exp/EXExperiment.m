@@ -23,7 +23,7 @@
     if (self) {
         _name = name;
         _cross = [UIImage imageNamed:@"cross.jpg"];
-        _image = [UIImage imageNamed:@"Goats.JPG"];
+        _image = [UIImage imageNamed:@"0.png"];
             
         EXExperimentPhase *study = [EXExperimentPhase studyPhase];
         EXExperimentPhase *test = [EXExperimentPhase testPhase];
