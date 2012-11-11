@@ -71,7 +71,7 @@
 }
 
 -(void)presentStimulus {
-    self.imageView.image = _experiment.image;
+    self.imageView.image = [_experiment nextStimulus];
     _nCompletedTrials++;
     if (_experiment.currentPhase.responseRequired == YES) {
         [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.stimulusDuration target:self selector:@selector(waitForResponse) userInfo:nil repeats:NO];

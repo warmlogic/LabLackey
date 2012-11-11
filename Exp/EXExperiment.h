@@ -17,6 +17,7 @@
 @property (readonly) EXExperimentPhase *currentPhase;
 @property (readonly) BOOL isCompleted;
 @property (nonatomic) NSMutableArray *experimentData;
+@property (nonatomic, readonly) NSArray *images;
 
 @property UIImage *image;
 
@@ -27,5 +28,7 @@
 -(void)reset;
 
 -(void)logResponse:(EXResponse *)response;
+
+-(UIImage *)nextStimulus;
 
 @end

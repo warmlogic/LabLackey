@@ -17,22 +17,24 @@
         _fixationDuration = 0.5; /* Seconds */
         _interStimulusInterval = 0.5; /* Seconds */
         _stimulusDuration = 1; /* Seconds */
-        _nTrials = 2;
+        _nTrials = 4;
     }
     return self;
-}
-
-+(EXExperimentPhase *)testPhase {
-    EXExperimentPhase *phase = [[EXExperimentPhase alloc] init];
-    phase.instructions = @"The instructions for the testing phase,";
-    phase.responseRequired = YES;
-    return phase;
 }
 
 +(EXExperimentPhase *)studyPhase {
     EXExperimentPhase *phase = [[EXExperimentPhase alloc] init];
     phase.instructions = @"The instructions for the study phase,";
     phase.responseRequired = NO;
+    phase.nTrials = 3;
+    return phase;
+}
+
++(EXExperimentPhase *)testPhase {
+    EXExperimentPhase *phase = [[EXExperimentPhase alloc] init];
+    phase.instructions = @"The instructions for the testing phase,";
+    phase.responseRequired = YES;
+    phase.nTrials = 5;
     return phase;
 }
 

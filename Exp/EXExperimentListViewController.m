@@ -126,7 +126,7 @@
         EXExperiment *experiment = _experiments[indexPath.row];
         
         // create the array to hold data about the entire experiment
-        experiment.experimentData = [[NSMutableArray alloc] initWithObjects:[NSDate date], nil];
+        experiment.experimentData = [NSMutableArray arrayWithCapacity:10];
         
         // debug
         NSLog(@"experimentData: %@", experiment.experimentData);
