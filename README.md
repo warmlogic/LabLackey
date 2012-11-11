@@ -5,21 +5,26 @@ Features to implement:
 ----
 
 - Log data (subject information; experiment parameters; events like presentations, responses, etc.) to a file
+  - make a trialData class
+  - append strings (?) of events to trialData object/array (how can I inspect this?)
   - Send log file somewhere (email, server, iTunes)
-
-- Get experiment settings from a JSON config file
-  - https://github.com/stig/json-framework
 
 - Create stimulus pool from images in a folder or words in a text file
 
-- Put stimlui in a dictionary so they can have properties. Not sure how to generalize setting properties via the config file.
+- Put stimuli in a dictionary so they can have properties. Not sure how to generalize setting properties via the config file.
 
 - Stimulus randomization method
 
 - Stimulus pool sub-selection method (for dividing up study and test items)
 
-- Jitter for time durations (stimulus presentaiton, ISI, etc.)
+- Jitter for time durations (stimulus presentation, ISI, etc.)
 
+- Get experiment settings from a JSON config file
+  - https://github.com/stig/json-framework
+
+- Experiment description/introduction screen after choosing an experiment.
+  - This would have the back button if you didn't want to start that experiment.
+  - Is it possible to only show this screen once? (depending on the type of experiment) e.g., if the experiment is still running, don't show it until the exp is done and it is run again.
 
 Bugs to fix:
 ----
