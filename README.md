@@ -11,6 +11,8 @@ Features to implement:
 
 - Create stimulus pool from images in a folder or words in a text file
 
+- rename EXResponse class to something like EXTrialData
+
 - Put stimuli in a dictionary so they can have properties. Not sure how to generalize setting properties via the config file.
 
 - Stimulus randomization method

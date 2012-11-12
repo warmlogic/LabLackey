@@ -40,8 +40,6 @@
 		C9DA091B1620BA0D00CF2E2E /* ExpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA091A1620BA0D00CF2E2E /* ExpTests.m */; };
 		C9DA09261620C4E400CF2E2E /* EXExperiment.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09251620C4E400CF2E2E /* EXExperiment.m */; };
 		C9DA09291620CD9800CF2E2E /* EXInstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09281620CD9800CF2E2E /* EXInstructionsViewController.m */; };
-		C9DA092D1620D8B700CF2E2E /* Goats.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C9DA092B1620D8B700CF2E2E /* Goats.JPG */; };
-		C9DA092E1620D8B700CF2E2E /* Foosball.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DA092C1620D8B700CF2E2E /* Foosball.jpg */; };
 		C9DA09301620DDA100CF2E2E /* cross.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DA092F1620DDA100CF2E2E /* cross.jpg */; };
 		C9DA09331620F02C00CF2E2E /* EXExperimentPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09321620F02C00CF2E2E /* EXExperimentPhase.m */; };
 		C9DA093616213D5200CF2E2E /* EXResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA093516213D5200CF2E2E /* EXResponse.m */; };
@@ -102,8 +100,6 @@
 		C9DA09251620C4E400CF2E2E /* EXExperiment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXExperiment.m; sourceTree = "<group>"; };
 		C9DA09271620CD9800CF2E2E /* EXInstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXInstructionsViewController.h; sourceTree = "<group>"; };
 		C9DA09281620CD9800CF2E2E /* EXInstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXInstructionsViewController.m; sourceTree = "<group>"; };
-		C9DA092B1620D8B700CF2E2E /* Goats.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Goats.JPG; sourceTree = "<group>"; };
-		C9DA092C1620D8B700CF2E2E /* Foosball.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Foosball.jpg; sourceTree = "<group>"; };
 		C9DA092F1620DDA100CF2E2E /* cross.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cross.jpg; sourceTree = "<group>"; };
 		C9DA09311620F02C00CF2E2E /* EXExperimentPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXExperimentPhase.h; sourceTree = "<group>"; };
 		C9DA09321620F02C00CF2E2E /* EXExperimentPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXExperimentPhase.m; sourceTree = "<group>"; };
@@ -250,8 +246,6 @@
 				C97655D51647201D00DFA017 /* 8.png */,
 				C97655D61647201D00DFA017 /* 9.png */,
 				C97655D71647201D00DFA017 /* leftright.png */,
-				C9DA092B1620D8B700CF2E2E /* Goats.JPG */,
-				C9DA092C1620D8B700CF2E2E /* Foosball.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -334,8 +328,6 @@
 				C9DA08FA1620BA0C00CF2E2E /* Default-568h@2x.png in Resources */,
 				C9DA08FD1620BA0C00CF2E2E /* MainStoryboard_iPhone.storyboard in Resources */,
 				C9DA09001620BA0C00CF2E2E /* MainStoryboard_iPad.storyboard in Resources */,
-				C9DA092D1620D8B700CF2E2E /* Goats.JPG in Resources */,
-				C9DA092E1620D8B700CF2E2E /* Foosball.jpg in Resources */,
 				C9DA09301620DDA100CF2E2E /* cross.jpg in Resources */,
 				C97655D81647201D00DFA017 /* 0.png in Resources */,
 				C97655D91647201D00DFA017 /* 1.png in Resources */,
