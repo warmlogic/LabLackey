@@ -13,6 +13,7 @@
 -(id)init {
     self = [super init];
     if (self) {
+        //defaults
         _instructions = @"This is what is going to happen during the study!";
         _fixationDuration = 0.5; /* Seconds */
         _interStimulusInterval = 0.5; /* Seconds */
@@ -24,17 +25,17 @@
 
 +(EXExperimentPhase *)studyPhase {
     EXExperimentPhase *phase = [[EXExperimentPhase alloc] init];
-    phase.instructions = @"The instructions for the study phase,";
+    phase.instructions = @"Study phase instructions:\n\nRemember the folloiwng list of items.";
     phase.responseRequired = NO;
-    phase.nTrials = 3;
+    phase.nTrials = 5;
     return phase;
 }
 
 +(EXExperimentPhase *)testPhase {
     EXExperimentPhase *phase = [[EXExperimentPhase alloc] init];
-    phase.instructions = @"The instructions for the testing phase,";
+    phase.instructions = @"Test phase instructions:\n\nDecide whether each upcoming item is\nOld: was on the prior list, or\nNew: was not on the prior list.";
     phase.responseRequired = YES;
-    phase.nTrials = 5;
+    phase.nTrials = 10;
     return phase;
 }
 

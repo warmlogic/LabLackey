@@ -96,7 +96,7 @@
 
 -(void)waitForResponse {
     waitingForResponse = YES;
-    self.imageView.image = [UIImage imageNamed:@"leftright"]; /* @"response" -> response.png or response@2x.png depending on device*/
+    self.imageView.image = [UIImage imageNamed:@"oldnew"]; /* @"response" -> response.png or response@2x.png depending on device*/
     _responseStartTime = [NSDate date];
 }
 
@@ -107,7 +107,7 @@
         
         _currentResponse.time = [NSDate date];
         _currentResponse.location = location;
-        _currentResponse.side = location.x<=self.imageView.frame.size.width/2?@"left":@"right";
+        _currentResponse.side = location.x<=self.imageView.frame.size.width/2?@"old":@"new";
         _currentResponse.reactionTime = [_currentResponse.time timeIntervalSinceDate:_responseStartTime];
         
         [self startFixation];

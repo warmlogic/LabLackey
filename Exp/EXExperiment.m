@@ -33,7 +33,7 @@
         _name = name;
         _cross = [UIImage imageNamed:@"cross.jpg"];
         
-        numberToTransferFromStudyToTest = 2;
+        numberToTransferFromStudyToTest = 5;
         
         [self reset];
     }
@@ -41,6 +41,7 @@
 }
 
 -(void)setupImagePool {
+    //hardcoded stimuli
     _images = @[[UIImage imageNamed:@"0.png"], [UIImage imageNamed:@"1.png"], [UIImage imageNamed:@"2.png"], [UIImage imageNamed:@"3.png"], [UIImage imageNamed:@"4.png"], [UIImage imageNamed:@"5.png"], [UIImage imageNamed:@"6.png"], [UIImage imageNamed:@"7.png"], [UIImage imageNamed:@"8.png"], [UIImage imageNamed:@"9.png"]];
 
     NSMutableArray *tempStimuli = [NSMutableArray arrayWithCapacity:_images.count];
@@ -62,7 +63,8 @@
     EXStimulus *stimulus = [[self currentPhase] stimulusSet][stimulusCounter];
     
     stimulusCounter++;
-    NSLog(@"%d", stimulusCounter);
+    // debug
+    //NSLog(@"%d", stimulusCounter);
     
     return stimulus;
 }
@@ -104,7 +106,8 @@
 }
 
 -(void)logResponse:(EXTrialData *)response {
-    NSLog(@"%@, %@, %f, %f, %f",response.time, response.side, response.location.x, response.location.y, response.reactionTime);
+    //debug
+    NSLog(@"%@, %@, %@, %f, %f, %f",response.time, response.stimulusName, response.side, response.location.x, response.location.y, response.reactionTime);
     [_experimentData addObject:response];
 }
 
@@ -118,13 +121,15 @@
     directory = [directory stringByAppendingPathComponent:self.name];
     NSString *fileName = [_experimentStartTime.description stringByAppendingPathExtension:@"csv"];
     NSString *saveFile = [directory stringByAppendingPathComponent:fileName];
-    //NSLog(@"%@",saveFile);
+    //debug
+    //NSLog(@"File to save: %@",saveFile);
     
     NSFileManager *manager = [NSFileManager defaultManager];
     BOOL success = [manager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:nil];
     if (success)
     {
-        //NSLog(@"created %@",directory);
+        // debug
+        //NSLog(@"Output directory successfully set to: %@",directory);
         [dataToWrite writeToFile:saveFile atomically:YES encoding:NSUTF8StringEncoding error:nil];
     }
 }
