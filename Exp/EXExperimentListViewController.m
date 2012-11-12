@@ -128,6 +128,8 @@
         // create the array to hold data about the entire experiment
         experiment.experimentData = [NSMutableArray arrayWithCapacity:10];
         
+        experiment.experimentStartTime = [NSDate date];
+        
         // debug
         NSLog(@"experimentData: %@", experiment.experimentData);
         

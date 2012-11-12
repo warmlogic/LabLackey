@@ -18,6 +18,7 @@
 @property (readonly) BOOL isCompleted;
 @property (nonatomic) NSMutableArray *experimentData;
 @property (nonatomic, readonly) NSArray *images;
+@property NSDate *experimentStartTime;
 
 @property UIImage *image;
 
@@ -30,5 +31,7 @@
 -(void)logResponse:(EXResponse *)response;
 
 -(UIImage *)nextStimulus;
+
+-(void)writeData;
 
 @end

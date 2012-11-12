@@ -5,7 +5,7 @@ Features to implement:
 ----
 
 - Log data (subject information; experiment parameters; events like presentations, responses, etc.) to a file
-  - make a trialData class
+  - make a response class - done
   - append strings (?) of events to trialData object/array (how can I inspect this?)
   - Send log file somewhere (email, server, iTunes)
 

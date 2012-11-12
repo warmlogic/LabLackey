@@ -38,6 +38,7 @@
         _instructionsView.text = _experiment.currentPhase.instructions;
     } else {
         [self.navigationController popToRootViewControllerAnimated:YES];
+        [_experiment writeData];
         [_experiment reset];
     }
     

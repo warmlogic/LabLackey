@@ -102,6 +102,19 @@
     for (EXResponse *event in _experimentData) {
         dataToWrite = [dataToWrite stringByAppendingFormat:@"%f, %@, %f, %f, %f\n",[event.time timeIntervalSince1970], event.side, event.location.x, event.location.y, event.reactionTime];
     }
+    NSString *directory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    directory = [directory stringByAppendingPathComponent:self.name];
+    NSString *fileName = [_experimentStartTime.description stringByAppendingPathExtension:@"csv"];
+    NSString *saveFile = [directory stringByAppendingPathComponent:fileName];
+    //NSLog(@"%@",saveFile);
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    BOOL success = [manager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:nil];
+    if (success)
+    {
+        //NSLog(@"created %@",directory);
+        [dataToWrite writeToFile:saveFile atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    }
 }
 
 @end

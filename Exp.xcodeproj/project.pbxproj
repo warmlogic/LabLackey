@@ -19,6 +19,7 @@
 		C97655E11647201D00DFA017 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = C97655D61647201D00DFA017 /* 9.png */; };
 		C97655E21647201D00DFA017 /* leftright.png in Resources */ = {isa = PBXBuildFile; fileRef = C97655D71647201D00DFA017 /* leftright.png */; };
 		C99098D4165032360094DCCB /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C99098D3165032360094DCCB /* NSArray+Utilities.m */; };
+		C99098D7165074DF0094DCCB /* EXStimulus.m in Sources */ = {isa = PBXBuildFile; fileRef = C99098D6165074DF0094DCCB /* EXStimulus.m */; };
 		C9DA08E41620BA0C00CF2E2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DA08E31620BA0C00CF2E2E /* UIKit.framework */; };
 		C9DA08E61620BA0C00CF2E2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DA08E51620BA0C00CF2E2E /* Foundation.framework */; };
 		C9DA08E81620BA0C00CF2E2E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DA08E71620BA0C00CF2E2E /* CoreGraphics.framework */; };
@@ -70,6 +71,8 @@
 		C97655D71647201D00DFA017 /* leftright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftright.png; sourceTree = "<group>"; };
 		C99098D2165032360094DCCB /* NSArray+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utilities.h"; sourceTree = "<group>"; };
 		C99098D3165032360094DCCB /* NSArray+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utilities.m"; sourceTree = "<group>"; };
+		C99098D5165074DF0094DCCB /* EXStimulus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXStimulus.h; sourceTree = "<group>"; };
+		C99098D6165074DF0094DCCB /* EXStimulus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXStimulus.m; sourceTree = "<group>"; };
 		C9DA08DF1620BA0C00CF2E2E /* Exp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DA08E31620BA0C00CF2E2E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C9DA08E51620BA0C00CF2E2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -186,6 +189,8 @@
 				C9DA09021620BA0C00CF2E2E /* EXExperimentListViewController.m */,
 				C9DA09041620BA0C00CF2E2E /* EXExperimentViewController.h */,
 				C9DA09051620BA0C00CF2E2E /* EXExperimentViewController.m */,
+				C99098D5165074DF0094DCCB /* EXStimulus.h */,
+				C99098D6165074DF0094DCCB /* EXStimulus.m */,
 				C9DA09241620C4E400CF2E2E /* EXExperiment.h */,
 				C9DA09251620C4E400CF2E2E /* EXExperiment.m */,
 				C9DA093416213D5200CF2E2E /* EXResponse.h */,
@@ -386,6 +391,7 @@
 				C9DA09331620F02C00CF2E2E /* EXExperimentPhase.m in Sources */,
 				C9DA093616213D5200CF2E2E /* EXResponse.m in Sources */,
 				C99098D4165032360094DCCB /* NSArray+Utilities.m in Sources */,
+				C99098D7165074DF0094DCCB /* EXStimulus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
