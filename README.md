@@ -20,7 +20,9 @@ Features to implement:
 ----
 
 - Experiment configuration
-  - Read parameters from a JSON config file
+  - Read parameters from a JSON configuration file
+    - http://json.org
+    - http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSJSONSerialization_Class/Reference/Reference.html
     - https://github.com/stig/json-framework
 
 - Stimuli
@@ -36,14 +38,14 @@ Features to implement:
   - Support for sending the log file to email or a server
 
 - Visual presentation
-  - Experiment description/introduction screen after choosing an experiment.
+  - Experiment description or introduction screen after choosing an experiment.
     - This would have the "Back" button if you didn't want to start that experiment.
 
 
 New experiment ideas:
 ====
 
-- Probing for data every now and then
+- Probe for data every now and then via local notifications
   - http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/IPhoneOSClientImp/IPhoneOSClientImp.html
 
 Links:
