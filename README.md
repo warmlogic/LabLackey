@@ -42,7 +42,7 @@ Features to implement:
     - This would have the "Back" button if you didn't want to start that experiment.
 
 
-New experiment ideas:
+Other experiment paradigm ideas:
 ====
 
 - Probe for data every now and then via local notifications
