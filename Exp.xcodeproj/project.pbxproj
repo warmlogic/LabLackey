@@ -42,7 +42,7 @@
 		C9DA09291620CD9800CF2E2E /* EXInstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09281620CD9800CF2E2E /* EXInstructionsViewController.m */; };
 		C9DA09301620DDA100CF2E2E /* cross.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9DA092F1620DDA100CF2E2E /* cross.jpg */; };
 		C9DA09331620F02C00CF2E2E /* EXExperimentPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA09321620F02C00CF2E2E /* EXExperimentPhase.m */; };
-		C9DA093616213D5200CF2E2E /* EXResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA093516213D5200CF2E2E /* EXResponse.m */; };
+		C9DA093616213D5200CF2E2E /* EXTrialData.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DA093516213D5200CF2E2E /* EXTrialData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,8 +103,8 @@
 		C9DA092F1620DDA100CF2E2E /* cross.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cross.jpg; sourceTree = "<group>"; };
 		C9DA09311620F02C00CF2E2E /* EXExperimentPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXExperimentPhase.h; sourceTree = "<group>"; };
 		C9DA09321620F02C00CF2E2E /* EXExperimentPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXExperimentPhase.m; sourceTree = "<group>"; };
-		C9DA093416213D5200CF2E2E /* EXResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXResponse.h; sourceTree = "<group>"; };
-		C9DA093516213D5200CF2E2E /* EXResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXResponse.m; sourceTree = "<group>"; };
+		C9DA093416213D5200CF2E2E /* EXTrialData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTrialData.h; sourceTree = "<group>"; };
+		C9DA093516213D5200CF2E2E /* EXTrialData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTrialData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,8 +189,8 @@
 				C99098D6165074DF0094DCCB /* EXStimulus.m */,
 				C9DA09241620C4E400CF2E2E /* EXExperiment.h */,
 				C9DA09251620C4E400CF2E2E /* EXExperiment.m */,
-				C9DA093416213D5200CF2E2E /* EXResponse.h */,
-				C9DA093516213D5200CF2E2E /* EXResponse.m */,
+				C9DA093416213D5200CF2E2E /* EXTrialData.h */,
+				C9DA093516213D5200CF2E2E /* EXTrialData.m */,
 				C9DA09311620F02C00CF2E2E /* EXExperimentPhase.h */,
 				C9DA09321620F02C00CF2E2E /* EXExperimentPhase.m */,
 				C9DA08EA1620BA0C00CF2E2E /* Supporting Files */,
@@ -381,7 +381,7 @@
 				C9DA09261620C4E400CF2E2E /* EXExperiment.m in Sources */,
 				C9DA09291620CD9800CF2E2E /* EXInstructionsViewController.m in Sources */,
 				C9DA09331620F02C00CF2E2E /* EXExperimentPhase.m in Sources */,
-				C9DA093616213D5200CF2E2E /* EXResponse.m in Sources */,
+				C9DA093616213D5200CF2E2E /* EXTrialData.m in Sources */,
 				C99098D4165032360094DCCB /* NSArray+Utilities.m in Sources */,
 				C99098D7165074DF0094DCCB /* EXStimulus.m in Sources */,
 			);

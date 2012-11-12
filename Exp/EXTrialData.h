@@ -1,5 +1,5 @@
 //
-//  EXResponse.h
+//  EXTrialData.h
 //  Exp
 //
 //  Created by Matt Mollison on 10/6/12.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EXResponse : NSObject
+@interface EXTrialData : NSObject
 
 @property CGPoint location;
 @property NSString *side;

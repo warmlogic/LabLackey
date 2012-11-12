@@ -103,14 +103,14 @@
     stimulusCounter = 0;
 }
 
--(void)logResponse:(EXResponse *)response {
+-(void)logResponse:(EXTrialData *)response {
     NSLog(@"%@, %@, %f, %f, %f",response.time, response.side, response.location.x, response.location.y, response.reactionTime);
     [_experimentData addObject:response];
 }
 
 -(void)writeData {
     NSString *dataToWrite = @"";
-    for (EXResponse *event in _experimentData) {
+    for (EXTrialData *event in _experimentData) {
         dataToWrite = [dataToWrite stringByAppendingFormat:@"%f, %@, %f, %@, %f, %f, %f\n",
                        [event.stimulusOnsetTime timeIntervalSince1970],event.stimulusName,[event.time timeIntervalSince1970], event.side, event.location.x, event.location.y, event.reactionTime];
     }

@@ -5,9 +5,7 @@ Features to implement:
 ----
 
 - Log data (subject information; experiment parameters; events like presentations, responses, etc.) to a file
-  - make a response class - done
-  - append strings (?) of events to trialData object/array (how can I inspect this?)
-  - Send log file somewhere (email, server, iTunes)
+  - Support for sending the log file to email or a server
 
 - Create stimulus pool from images in a folder or words in a text file
 

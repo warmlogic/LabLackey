@@ -7,13 +7,13 @@
 //
 
 #import "EXExperimentViewController.h"
-#import "EXResponse.h"
+#import "EXTrialData.h"
 
 @interface EXExperimentViewController () {
     BOOL waitingForResponse;
 }
 
-@property EXResponse *currentResponse;
+@property EXTrialData *currentResponse;
 @property (nonatomic) NSInteger nCompletedTrials;
 
 @property NSDate *responseStartTime;
@@ -76,7 +76,7 @@
     self.imageView.image = stimulus.image;
     _nCompletedTrials++;
     
-    self.currentResponse = [[EXResponse alloc] init];
+    self.currentResponse = [[EXTrialData alloc] init];
     self.currentResponse.stimulusName = stimulus.name;
     _currentResponse.stimulusOnsetTime = [NSDate date];
     
