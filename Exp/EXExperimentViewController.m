@@ -13,6 +13,7 @@
     BOOL waitingForResponse;
 }
 
+@property EXResponse *currentResponse;
 @property (nonatomic) NSInteger nCompletedTrials;
 
 @property NSDate *responseStartTime;
@@ -71,12 +72,19 @@
 }
 
 -(void)presentStimulus {
-    self.imageView.image = [_experiment nextStimulus];
+    EXStimulus *stimulus = [_experiment nextStimulus];
+    self.imageView.image = stimulus.image;
     _nCompletedTrials++;
+    
+    self.currentResponse = [[EXResponse alloc] init];
+    self.currentResponse.stimulusName = stimulus.name;
+    _currentResponse.stimulusOnsetTime = [NSDate date];
+    
     if (_experiment.currentPhase.responseRequired == YES) {
         [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.stimulusDuration target:self selector:@selector(waitForResponse) userInfo:nil repeats:NO];
     }
     else  {
+        [_experiment logResponse:_currentResponse];
         [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.stimulusDuration target:self selector:@selector(startFixation) userInfo:nil repeats:NO];
     }
 }
@@ -97,17 +105,15 @@
     if (waitingForResponse) {
         CGPoint location = [recognizer locationInView:self.imageView];
         
-        
-        EXResponse *response = [[EXResponse alloc] init];
-        response.time = [NSDate date];
-        response.location = location;
-        response.side = location.x<=self.imageView.frame.size.width/2?@"left":@"right";
-        response.reactionTime = [response.time timeIntervalSinceDate:_responseStartTime];
+        _currentResponse.time = [NSDate date];
+        _currentResponse.location = location;
+        _currentResponse.side = location.x<=self.imageView.frame.size.width/2?@"left":@"right";
+        _currentResponse.reactionTime = [_currentResponse.time timeIntervalSinceDate:_responseStartTime];
         
         [self startFixation];
         waitingForResponse = NO;
         
-        [_experiment logResponse:response];
+        [_experiment logResponse:_currentResponse];
     }
 }
 

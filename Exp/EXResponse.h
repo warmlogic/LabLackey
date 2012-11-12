@@ -14,5 +14,7 @@
 @property NSString *side;
 @property NSDate *time;
 @property NSTimeInterval reactionTime;
+@property NSString *stimulusName;
+@property NSDate *stimulusOnsetTime;
 
 @end

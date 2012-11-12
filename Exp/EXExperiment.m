@@ -9,6 +9,7 @@
 #import "EXExperiment.h"
 #import "EXExperimentPhase.h"
 #import "NSArray+Utilities.h"
+#import "EXStimulus.h"
 
 @interface EXExperiment () {
     NSInteger stimulusCounter;
@@ -17,6 +18,7 @@
 
 @property NSInteger currentPhaseIndex;
 @property (nonatomic, strong) NSArray *experimentPhases;
+@property (nonatomic, strong) NSArray *stimuli;
 @property (nonatomic, strong) NSArray *selectedStimuli;
 
 @end
@@ -40,15 +42,24 @@
 
 -(void)setupImagePool {
     _images = @[[UIImage imageNamed:@"0.png"], [UIImage imageNamed:@"1.png"], [UIImage imageNamed:@"2.png"], [UIImage imageNamed:@"3.png"], [UIImage imageNamed:@"4.png"], [UIImage imageNamed:@"5.png"], [UIImage imageNamed:@"6.png"], [UIImage imageNamed:@"7.png"], [UIImage imageNamed:@"8.png"], [UIImage imageNamed:@"9.png"]];
+
+    NSMutableArray *tempStimuli = [NSMutableArray arrayWithCapacity:_images.count];
+    EXStimulus *s;
+    for (int i=0; i<_images.count; i++) {
+        s = [[EXStimulus alloc] init];
+        s.image = _images[i];
+        s.name = [NSString stringWithFormat:@"%d",i];
+        [tempStimuli addObject:s];
+    }
+    self.stimuli = tempStimuli;
 }
 
 -(EXExperimentPhase *) currentPhase {
     return _experimentPhases[_currentPhaseIndex];
 }
 
-
--(UIImage *)nextStimulus {
-    UIImage *stimulus = [[self currentPhase] stimulusSet][stimulusCounter];
+-(EXStimulus *)nextStimulus {
+    EXStimulus *stimulus = [[self currentPhase] stimulusSet][stimulusCounter];
     
     stimulusCounter++;
     NSLog(@"%d", stimulusCounter);
@@ -74,7 +85,7 @@
     
     // filter the stimuli
     NSIndexSet *totalStimulusRange = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, totalNumberOfStimuliNeeded)];
-    self.selectedStimuli = [[NSArray randomizedArrayFromArray:_images] objectsAtIndexes:totalStimulusRange];
+    self.selectedStimuli = [[NSArray randomizedArrayFromArray:self.stimuli] objectsAtIndexes:totalStimulusRange];
     
     
     NSIndexSet *studyStimulusRange = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, study.nTrials)];
@@ -100,7 +111,8 @@
 -(void)writeData {
     NSString *dataToWrite = @"";
     for (EXResponse *event in _experimentData) {
-        dataToWrite = [dataToWrite stringByAppendingFormat:@"%f, %@, %f, %f, %f\n",[event.time timeIntervalSince1970], event.side, event.location.x, event.location.y, event.reactionTime];
+        dataToWrite = [dataToWrite stringByAppendingFormat:@"%f, %@, %f, %@, %f, %f, %f\n",
+                       [event.stimulusOnsetTime timeIntervalSince1970],event.stimulusName,[event.time timeIntervalSince1970], event.side, event.location.x, event.location.y, event.reactionTime];
     }
     NSString *directory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     directory = [directory stringByAppendingPathComponent:self.name];

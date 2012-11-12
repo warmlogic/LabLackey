@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "EXExperimentPhase.h"
 #import "EXResponse.h"
+#import "EXStimulus.h"
 
 @interface EXExperiment : NSObject
 
@@ -30,7 +31,7 @@
 
 -(void)logResponse:(EXResponse *)response;
 
--(UIImage *)nextStimulus;
+-(EXStimulus *)nextStimulus;
 
 -(void)writeData;
 
