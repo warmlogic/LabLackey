@@ -58,16 +58,46 @@
 -(void)startFixation {
     self.imageView.image = _experiment.cross;
     
-    [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.fixationDuration target:self selector:@selector(startISI) userInfo:nil repeats:NO];
+    NSTimeInterval fixationDuration;
+    if (_experiment.currentPhase.fixationJitter != 0.0) {
+        // figure out the jitter time in milliseconds
+        int jitterMS = arc4random_uniform((int)(_experiment.currentPhase.fixationJitter * 1000));
+        // convert to seconds
+        double jitterS = (double)jitterMS / 1000;
+        // calculate the full fixationDuration
+        fixationDuration = _experiment.currentPhase.fixationDuration + jitterS;
+    }
+    else {
+        fixationDuration = _experiment.currentPhase.fixationDuration;
+    }
+    //debug
+    //NSLog(@"full fixationDuration: %f",fixationDuration);
+    
+    [NSTimer scheduledTimerWithTimeInterval:fixationDuration target:self selector:@selector(startISI) userInfo:nil repeats:NO];
 }
 
 -(void)startISI {
     self.imageView.image = nil;
     
-    if (_nCompletedTrials < _experiment.currentPhase.nTrials) {
-        [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.interStimulusInterval target:self selector:@selector(presentStimulus) userInfo:nil repeats:NO];
+    NSTimeInterval interStimulusInterval;
+    if (_experiment.currentPhase.interStimulusIntervalJitter != 0.0) {
+        // figure out the jitter time in milliseconds
+        int jitterMS = arc4random_uniform((int)(_experiment.currentPhase.interStimulusIntervalJitter * 1000));
+        // convert to seconds
+        double jitterS = (double)jitterMS / 1000;
+        // calculate the full fixationDuration
+        interStimulusInterval = _experiment.currentPhase.interStimulusInterval + jitterS;
     } else {
-        [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.interStimulusInterval target:self selector:@selector(finishPhase) userInfo:nil repeats:NO];
+        interStimulusInterval = _experiment.currentPhase.interStimulusInterval;
+    }
+    //debug
+    //NSLog(@"full interStimulusInterval: %f",interStimulusInterval);
+    
+    if (_nCompletedTrials < _experiment.currentPhase.nTrials) {
+        [NSTimer scheduledTimerWithTimeInterval:interStimulusInterval target:self selector:@selector(presentStimulus) userInfo:nil repeats:NO];
+    }
+    else {
+        [NSTimer scheduledTimerWithTimeInterval:interStimulusInterval target:self selector:@selector(finishPhase) userInfo:nil repeats:NO];
     }
 }
 
@@ -80,12 +110,27 @@
     self.currentResponse.stimulusName = stimulus.name;
     _currentResponse.stimulusOnsetTime = [NSDate date];
     
+    NSTimeInterval stimulusDuration;
+    if (_experiment.currentPhase.stimulusJitter != 0.0) {
+        // figure out the jitter time in milliseconds
+        int jitterMS = arc4random_uniform((int)(_experiment.currentPhase.stimulusJitter * 1000));
+        // convert to seconds
+        double jitterS = (double)jitterMS / 1000;
+        // calculate the full fixationDuration
+        stimulusDuration = _experiment.currentPhase.stimulusDuration + jitterS;
+    }
+    else {
+        stimulusDuration = _experiment.currentPhase.stimulusDuration;
+    }
+    //debug
+    //NSLog(@"full stimulusDuration: %f",stimulusDuration);
+    
     if (_experiment.currentPhase.responseRequired == YES) {
-        [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.stimulusDuration target:self selector:@selector(waitForResponse) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:stimulusDuration target:self selector:@selector(waitForResponse) userInfo:nil repeats:NO];
     }
     else  {
         [_experiment logResponse:_currentResponse];
-        [NSTimer scheduledTimerWithTimeInterval:_experiment.currentPhase.stimulusDuration target:self selector:@selector(startFixation) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:stimulusDuration target:self selector:@selector(startFixation) userInfo:nil repeats:NO];
     }
 }
 

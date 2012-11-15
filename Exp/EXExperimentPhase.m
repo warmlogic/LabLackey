@@ -13,11 +13,14 @@
 -(id)init {
     self = [super init];
     if (self) {
-        //defaults
+        //hardcoded defaults
         _instructions = @"This is what is going to happen during the study!";
         _fixationDuration = 0.5; /* Seconds */
+        _fixationJitter = 0.0; /* Seconds */
         _interStimulusInterval = 0.5; /* Seconds */
-        _stimulusDuration = 1; /* Seconds */
+        _interStimulusIntervalJitter = 0.0; /* Seconds */
+        _stimulusDuration = 1.0; /* Seconds */
+        _stimulusJitter = 0.0; /* Seconds */
         _nTrials = 4;
     }
     return self;
@@ -28,6 +31,9 @@
     phase.instructions = @"Study phase instructions:\n\nRemember the folloiwng list of items.";
     phase.responseRequired = NO;
     phase.nTrials = 5;
+    phase.fixationJitter = 0.0;
+    phase.interStimulusIntervalJitter = 0.5;
+    phase.stimulusJitter = 0.0;
     return phase;
 }
 
@@ -36,6 +42,9 @@
     phase.instructions = @"Test phase instructions:\n\nDecide whether each upcoming item is\nOld: was on the prior list, or\nNew: was not on the prior list.";
     phase.responseRequired = YES;
     phase.nTrials = 10;
+    phase.fixationJitter = 0.0;
+    phase.interStimulusIntervalJitter = 0.5;
+    phase.stimulusJitter = 0.0;
     return phase;
 }
 

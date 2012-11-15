@@ -33,6 +33,7 @@
         _name = name;
         _cross = [UIImage imageNamed:@"cross.jpg"];
         
+        // hardcoded
         numberToTransferFromStudyToTest = 5;
         
         [self reset];
@@ -126,8 +127,7 @@
     
     NSFileManager *manager = [NSFileManager defaultManager];
     BOOL success = [manager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:nil];
-    if (success)
-    {
+    if (success) {
         // debug
         //NSLog(@"Output directory successfully set to: %@",directory);
         [dataToWrite writeToFile:saveFile atomically:YES encoding:NSUTF8StringEncoding error:nil];

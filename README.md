@@ -30,11 +30,13 @@ Features to implement:
 
 - Trial presentation
   - Random jitter for time durations (stimulus presentation, ISI, etc.)
+    - arc4random_uniform(upper_bound), as seen here http://stackoverflow.com/questions/160890/generating-random-numbers-in-objective-c
 
 - Log data
   - subject information
   - experiment parameters
-  - stimulus presentations
+  - stimulus presentations for study and test
+  - trial/event type (e.g., STUDY_PRESENTATION, TEST_RESPONSE)
   - Support for sending the log file to email or a server
 
 - Visual presentation

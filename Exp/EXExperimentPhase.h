@@ -12,8 +12,11 @@
 
 @property NSString *instructions;
 @property NSTimeInterval fixationDuration;
+@property NSTimeInterval fixationJitter;
 @property NSTimeInterval interStimulusInterval;
+@property NSTimeInterval interStimulusIntervalJitter;
 @property NSTimeInterval stimulusDuration;
+@property NSTimeInterval stimulusJitter;
 @property NSInteger nTrials;
 @property BOOL responseRequired;
 @property NSArray *stimulusSet;
