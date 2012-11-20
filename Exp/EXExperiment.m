@@ -81,9 +81,25 @@
 
 -(void)reset {
     
-    EXExperimentPhase *study = [EXExperimentPhase studyPhase];
-    EXExperimentPhase *test = [EXExperimentPhase testPhase];
-
+    // old
+    //EXExperimentPhase *study = [EXExperimentPhase studyPhase];
+    //EXExperimentPhase *test = [EXExperimentPhase testPhase];
+    
+    // hardcoded configuration file
+    NSString *configPath = [[NSBundle mainBundle] pathForResource:[@"config.json" stringByDeletingPathExtension] ofType:@"json"];
+    //NSLog(@"configPath: %@",configPath);
+    
+    NSData *config = [NSData dataWithContentsOfFile:configPath];
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:config options:0 error:&error];
+    
+    // get the full configuration for this experiment
+    NSDictionary *experimentConfig = [json objectForKey:self.name];
+    
+    // get the config for each phase
+    EXExperimentPhase *study = [EXExperimentPhase experimentWithConfiguration:experimentConfig forPhase:@"study"];
+    EXExperimentPhase *test = [EXExperimentPhase experimentWithConfiguration:experimentConfig forPhase:@"test"];
+    
     NSInteger totalNumberOfStimuliNeeded = study.nTrials + test.nTrials - numberToTransferFromStudyToTest;
     
     // filter the stimuli
@@ -98,7 +114,6 @@
     NSIndexSet *testStimulusRange = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(study.nTrials-numberToTransferFromStudyToTest, test.nTrials)];
     NSArray *testSet = [_selectedStimuli objectsAtIndexes:testStimulusRange];
     [test setStimulusSet:[NSArray randomizedArrayFromArray:testSet]];
-    
     
     _experimentPhases = [NSArray arrayWithObjects:study, test, nil];
     _currentPhaseIndex = 0;

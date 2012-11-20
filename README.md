@@ -10,10 +10,8 @@ Current features:
   - Stimulus array randomization
   - Sub-selection for study and test phases
 
-
 - Trial presentation
   - Random jitter for time durations (fixation, ISI, and stimulus presentation) using arc4random_uniform(upper_bound), as seen here http://stackoverflow.com/questions/160890/generating-random-numbers-in-objective-c
-
 
 - Log data
   - response
@@ -28,12 +26,11 @@ Features to implement:
   - Read parameters from a JSON configuration file
     - http://json.org
     - http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSJSONSerialization_Class/Reference/Reference.html
+      - +(id) JSONObjectWithData: (NSData *)data initWithContentsOfFile: (NSString *)path;
     - https://github.com/stig/json-framework
-
 
 - Stimuli
   - Create stimulus pool from words in a text file
-
 
 - Log data
   - subject information
@@ -41,7 +38,6 @@ Features to implement:
   - stimulus presentations for study and test
   - trial/event type (e.g., STUDY_PRESENTATION, TEST_RESPONSE)
   - Support for sending the log file to email or a server
-
 
 - Visual presentation
   - Experiment description or introduction screen after choosing an experiment.
