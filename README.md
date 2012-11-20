@@ -4,6 +4,14 @@ LabLackey readme
 Current features:
 ----
 
+- Experiment configuration
+  - Initial support for reading experiment parameters from a JSON file (hard coded)
+    - NB: Currently, this file must be included at the time of app compilation
+    - Resources:
+      - http://json.org
+      - http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSJSONSerialization_Class/Reference/Reference.html
+      - https://github.com/stig/json-framework (Use Apple's NSJSONSerialization instead of this)
+
 - Stimuli
   - Construct stimulus pool from images in a folder (hard coded)
   - Parameters for number of study and test phase trials (hard coded)
@@ -11,7 +19,8 @@ Current features:
   - Sub-selection for study and test phases
 
 - Trial presentation
-  - Random jitter for time durations (fixation, ISI, and stimulus presentation) using arc4random_uniform(upper_bound), as seen here http://stackoverflow.com/questions/160890/generating-random-numbers-in-objective-c
+  - Random jitter for time durations (fixation, ISI, and stimulus presentation) using arc4random_uniform(upper_bound)
+    - e.g., http://stackoverflow.com/questions/160890/generating-random-numbers-in-objective-c
 
 - Log data
   - response
@@ -23,11 +32,7 @@ Features to implement:
 ----
 
 - Experiment configuration
-  - Read parameters from a JSON configuration file
-    - http://json.org
-    - http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSJSONSerialization_Class/Reference/Reference.html
-      - +(id) JSONObjectWithData: (NSData *)data initWithContentsOfFile: (NSString *)path;
-    - https://github.com/stig/json-framework
+  - Use an external JSON configuration file, not present at the time of app compilation
 
 - Stimuli
   - Create stimulus pool from words in a text file
