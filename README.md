@@ -5,9 +5,8 @@ Current features:
 ----
 
 - Experiment configuration
-  - Initial support for reading experiment parameters from a JSON file (hard coded)
-    - NB: Currently, this file must be included at the time of app compilation
-    - Resources:
+  - Support for reading experiment parameters from a JSON file
+    - NB: The config file goes in the app's iTunes file sharing Documents directory. It must have the name "experimentName config.json".
       - http://json.org
       - http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSJSONSerialization_Class/Reference/Reference.html
       - https://github.com/stig/json-framework (Use Apple's NSJSONSerialization instead of this)
@@ -32,7 +31,7 @@ Features to implement:
 ----
 
 - Experiment configuration
-  - Use an external JSON configuration file, not present at the time of app compilation
+  - Read a file ("Experiment List.json") to populate the list of available experiments, dependent upon the existence of each "experimentName config.json" file
 
 - Stimuli
   - Create stimulus pool from words in a text file

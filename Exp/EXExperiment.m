@@ -81,15 +81,25 @@
 
 -(void)reset {
     
-    // old
-    //EXExperimentPhase *study = [EXExperimentPhase studyPhase];
-    //EXExperimentPhase *test = [EXExperimentPhase testPhase];
+    // configuration file located in iTunes file sharing, app's Directory folder.
+    // must be named: "experimentName config.json".
+    // NB: xperimentName is hardcoded as "Recognition Memory Experiment" in EXExperimentListViewController.
+    NSString *directory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *fileName = [[self.name stringByAppendingString:@" config"] stringByAppendingPathExtension:@"json"];
+    NSString *configFile = [directory stringByAppendingPathComponent:fileName];
+    // debug
+    //NSLog(@"configFile should be located at: %@",configFile);
     
-    // hardcoded configuration file
-    NSString *configPath = [[NSBundle mainBundle] pathForResource:[@"config.json" stringByDeletingPathExtension] ofType:@"json"];
-    //NSLog(@"configPath: %@",configPath);
+    NSData *config;
+    NSFileManager *manager = [NSFileManager defaultManager];
+    BOOL success = [manager fileExistsAtPath:configFile];
+    if (success) {
+        // debug
+        //NSLog(@"Config file successfully found at: %@",configFile);
+        config = [NSData dataWithContentsOfFile:configFile];
+    }
     
-    NSData *config = [NSData dataWithContentsOfFile:configPath];
+    // turn the entire config file into data we can read
     NSError *error = nil;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:config options:0 error:&error];
     
