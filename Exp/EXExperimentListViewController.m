@@ -28,12 +28,48 @@
     [super awakeFromNib];
 }
 
+- (void)loadConfiguration
+{
+    // configuration file located in iTunes file sharing, app's Directory folder.
+    // must be named: "experimentName config.json".
+    // NB: experimentName is hardcoded as "Recognition Memory Experiment" in EXExperimentListViewController.
+    NSString *directory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *fileName = [@"config" stringByAppendingPathExtension:@"json"];
+    NSString *configFile = [directory stringByAppendingPathComponent:fileName];
+    // debug
+    //NSLog(@"configFile should be located at: %@",configFile);
+    
+    NSData *config;
+    NSFileManager *manager = [NSFileManager defaultManager];
+    BOOL success = [manager fileExistsAtPath:configFile];
+    if (success) {
+        // debug
+        //NSLog(@"Config file successfully found at: %@",configFile);
+        config = [NSData dataWithContentsOfFile:configFile];
+    }
+    else {
+        NSLog(@"Config file not found at: %@",configFile);
+    }
+    
+    // turn the entire config file into data we can read
+    NSError *error = nil;
+    NSArray *experimentArray = [NSJSONSerialization JSONObjectWithData:config options:0 error:&error];
+    
+    NSMutableArray *temporaryExperimentArray = [NSMutableArray array];
+    
+    for (NSDictionary *experimentDescription in experimentArray) {        
+        [temporaryExperimentArray addObject:[EXExperiment experimentFromDictionaryDescription:experimentDescription]];
+    }
+
+    _experiments = [NSArray arrayWithArray:temporaryExperimentArray];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    _experiments = @[[[EXExperiment alloc] initWithName:@"Recognition Memory Experiment"]];
+    [self loadConfiguration];
     
     self.detailViewController = (EXExperimentViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     

@@ -35,4 +35,6 @@
 
 -(void)writeData;
 
++ (EXExperiment *)experimentFromDictionaryDescription:(NSDictionary *)description;
+
 @end

@@ -13,14 +13,13 @@
 
 @interface EXExperiment () {
     NSInteger stimulusCounter;
-    NSInteger numberToTransferFromStudyToTest;
 }
 
 @property NSInteger currentPhaseIndex;
 @property (nonatomic, strong) NSArray *experimentPhases;
 @property (nonatomic, strong) NSArray *stimuli;
 @property (nonatomic, strong) NSArray *selectedStimuli;
-
+@property (nonatomic) NSInteger numberToTransferFromStudyToTest;
 @end
 
 @implementation EXExperiment
@@ -34,9 +33,8 @@
         _cross = [UIImage imageNamed:@"cross.jpg"];
         
         // hardcoded
-        numberToTransferFromStudyToTest = 5;
+        _numberToTransferFromStudyToTest = 5;
         
-        [self reset];
     }
     return self;
 }
@@ -79,53 +77,41 @@
     return _currentPhaseIndex >= _experimentPhases.count;
 }
 
--(void)reset {
++ (EXExperiment *)experimentFromDictionaryDescription:(NSDictionary *)description
+{
     
-    // configuration file located in iTunes file sharing, app's Directory folder.
-    // must be named: "experimentName config.json".
-    // NB: xperimentName is hardcoded as "Recognition Memory Experiment" in EXExperimentListViewController.
-    NSString *directory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    NSString *fileName = [[self.name stringByAppendingString:@" config"] stringByAppendingPathExtension:@"json"];
-    NSString *configFile = [directory stringByAppendingPathComponent:fileName];
-    // debug
-    //NSLog(@"configFile should be located at: %@",configFile);
+    EXExperiment *experiment = [[EXExperiment alloc] initWithName:description[@"name"]];
     
-    NSData *config;
-    NSFileManager *manager = [NSFileManager defaultManager];
-    BOOL success = [manager fileExistsAtPath:configFile];
-    if (success) {
-        // debug
-        //NSLog(@"Config file successfully found at: %@",configFile);
-        config = [NSData dataWithContentsOfFile:configFile];
+    // build each phase
+    NSMutableArray *phases = [NSMutableArray array];
+    for (NSString *phase in description[@"phases"]){
+        [phases addObject:[EXExperimentPhase experimentWithConfiguration:description[phase]]];
     }
     
-    // turn the entire config file into data we can read
-    NSError *error = nil;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:config options:0 error:&error];
+    experiment.experimentPhases = [NSArray arrayWithArray:phases];
     
-    // get the full configuration for this experiment
-    NSDictionary *experimentConfig = [json objectForKey:self.name];
+    [experiment reset];
+    return experiment;
+}
+
+- (void) reset{
+    EXExperimentPhase *study = self.experimentPhases[0];
+    EXExperimentPhase *test = self.experimentPhases[1];
     
-    // get the config for each phase
-    EXExperimentPhase *study = [EXExperimentPhase experimentWithConfiguration:experimentConfig forPhase:@"study"];
-    EXExperimentPhase *test = [EXExperimentPhase experimentWithConfiguration:experimentConfig forPhase:@"test"];
-    
-    NSInteger totalNumberOfStimuliNeeded = study.nTrials + test.nTrials - numberToTransferFromStudyToTest;
+    NSInteger totalNumberOfStimuliNeeded = study.nTrials + test.nTrials - _numberToTransferFromStudyToTest;
     
     // filter the stimuli
     NSIndexSet *totalStimulusRange = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, totalNumberOfStimuliNeeded)];
     self.selectedStimuli = [[NSArray randomizedArrayFromArray:self.stimuli] objectsAtIndexes:totalStimulusRange];
-    
-    
+        
     NSIndexSet *studyStimulusRange = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, study.nTrials)];
     NSArray *studySet = [_selectedStimuli objectsAtIndexes:studyStimulusRange];
     [study setStimulusSet: [NSArray randomizedArrayFromArray:studySet]];
     
-    NSIndexSet *testStimulusRange = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(study.nTrials-numberToTransferFromStudyToTest, test.nTrials)];
+    NSIndexSet *testStimulusRange = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(study.nTrials-_numberToTransferFromStudyToTest, test.nTrials)];
     NSArray *testSet = [_selectedStimuli objectsAtIndexes:testStimulusRange];
     [test setStimulusSet:[NSArray randomizedArrayFromArray:testSet]];
     
-    _experimentPhases = [NSArray arrayWithObjects:study, test, nil];
     _currentPhaseIndex = 0;
     
     stimulusCounter = 0;

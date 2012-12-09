@@ -26,6 +26,6 @@
 
 //+(EXExperimentPhase *)testPhase;
 //+(EXExperimentPhase *)studyPhase;
-+(EXExperimentPhase *)experimentWithConfiguration:(NSDictionary *)experimentConfig forPhase:(NSString *)phaseName;
++(EXExperimentPhase *)experimentWithConfiguration:(NSDictionary *)phaseConfig;
 
 @end

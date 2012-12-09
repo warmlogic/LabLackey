@@ -50,19 +50,9 @@
 //    return phase;
 //}
 
-//+(EXExperimentPhase *)experimentWithConfiguration:(NSDictionary *)config {
-//    EXExperimentPhase *phase = [[EXExperimentPhase alloc] init];
-//    
-//    // Set up object from dictionary
-//    phase.instructions = [config objectForKey:@"instructions"];
-//    
-//    return phase;
-//}
-
-+(EXExperimentPhase *)experimentWithConfiguration:(NSDictionary *)experimentConfig forPhase:(NSString *)phaseName {
++(EXExperimentPhase *)experimentWithConfiguration:(NSDictionary *)phaseConfig {
     EXExperimentPhase *phase = [[EXExperimentPhase alloc] init];
     
-    NSDictionary *phaseConfig = [experimentConfig objectForKey:phaseName];
     //debug
     //NSLog(@"%@ dictionary: %@",phaseName,phaseConfig);
     
