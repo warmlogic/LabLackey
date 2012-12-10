@@ -58,6 +58,8 @@ Features to implement:
 
 - Stimuli
   - Create stimulus pool from words in a text file
+  - Stimulus metadata
+    - e.g., set particular presentation parameters, or know whether a stimulus is old or new (specific to recognition memory experiment)
 
 - Log data
   - Log other types of data
@@ -71,6 +73,7 @@ Features to implement:
   - Initial experiment description/introduction screen.
     - This would have the "Back" button in case you didn't want to start that experiment.
     - Then the "Back" button should be removed from any phase instruction screen.
+  - Icon!
 
 
 Other experimental paradigm ideas:
