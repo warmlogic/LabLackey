@@ -13,11 +13,11 @@ How to use LabLackey
   - It has been tested with Xcode 4.5.2 as an iPhone app under iOS 6.
 - Once the repository is cloned to your local computer, you will see that the actual project itself is currently named `Exp`.
 - A JSON-formatted configuration file is needed to run an experiment. A basic default configuration file is located at `LabLackey/Exp/config.json`.
-  - Upon running, the app expects to find this configuration file in the iTunes File Sharing "Documents" directory for this app (`~/Library/Application Support/iPhone Simulator/6.0/Applications/[GUID goes here]/Documents/config.json`). However, we're not actually using iTunes File Sharing yet (i.e., we're not running on an iOS device), and this directory won't exist until after the initial compilation. Thus, if it doesn't find `Documents/config.json` upon running, it will instead use the basic default configuration file.
+  - Upon running, the app expects to find this configuration file in the iTunes File Sharing "Documents" directory for this app (`~/Library/Application Support/iPhone Simulator/6.0/Applications/[GUID]/Documents/config.json`). However, we're not actually using iTunes File Sharing yet (i.e., we're not running on an iOS device), and this directory won't exist until after the initial compilation. Thus, if it doesn't find `Documents/config.json` upon running, it will instead use the basic default configuration file.
   - NB: JSON files do not seem to be able to contain comments.
 - To run the app, open `Exp.proj` in Xcode and click the "Run" button at the top left.
   - Then choose an experiment to participate in.
-  - Logged experiment data currently gets saved to a CSV file in `~/Library/Application Support/iPhone Simulator/6.0/Applications/[GUID goes here]/Documents/[Experiment name goes here]/`
+  - Logged experiment data currently gets saved to a CSV file in `~/Library/Application Support/iPhone Simulator/6.0/Applications/[GUID]/Documents/[Experiment name]/`
 
 Current features:
 ----
@@ -73,7 +73,7 @@ Features to implement:
     - Then the "Back" button should be removed from any phase instruction screen.
 
 
-Other experiment paradigm ideas:
+Other experimental paradigm ideas:
 ====
 
 - Probe for data every now and then via local notifications
