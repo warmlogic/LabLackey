@@ -20,6 +20,8 @@
 		C97655E21647201D00DFA017 /* leftright.png in Resources */ = {isa = PBXBuildFile; fileRef = C97655D71647201D00DFA017 /* leftright.png */; };
 		C99098D4165032360094DCCB /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C99098D3165032360094DCCB /* NSArray+Utilities.m */; };
 		C99098D7165074DF0094DCCB /* EXStimulus.m in Sources */ = {isa = PBXBuildFile; fileRef = C99098D6165074DF0094DCCB /* EXStimulus.m */; };
+		C991FB441675D657000672A1 /* LabLackeyIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C991FB431675D657000672A1 /* LabLackeyIcon@2x.png */; };
+		C991FB481675D73F000672A1 /* LabLackeyIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C991FB471675D73F000672A1 /* LabLackeyIcon.png */; };
 		C9DA08E41620BA0C00CF2E2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DA08E31620BA0C00CF2E2E /* UIKit.framework */; };
 		C9DA08E61620BA0C00CF2E2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DA08E51620BA0C00CF2E2E /* Foundation.framework */; };
 		C9DA08E81620BA0C00CF2E2E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DA08E71620BA0C00CF2E2E /* CoreGraphics.framework */; };
@@ -73,6 +75,8 @@
 		C99098D3165032360094DCCB /* NSArray+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utilities.m"; sourceTree = "<group>"; };
 		C99098D5165074DF0094DCCB /* EXStimulus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXStimulus.h; sourceTree = "<group>"; };
 		C99098D6165074DF0094DCCB /* EXStimulus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXStimulus.m; sourceTree = "<group>"; };
+		C991FB431675D657000672A1 /* LabLackeyIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LabLackeyIcon@2x.png"; sourceTree = "<group>"; };
+		C991FB471675D73F000672A1 /* LabLackeyIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LabLackeyIcon.png; sourceTree = "<group>"; };
 		C9DA08DF1620BA0C00CF2E2E /* Exp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DA08E31620BA0C00CF2E2E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C9DA08E51620BA0C00CF2E2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -147,6 +151,8 @@
 		C9DA08D41620BA0C00CF2E2E = {
 			isa = PBXGroup;
 			children = (
+				C991FB471675D73F000672A1 /* LabLackeyIcon.png */,
+				C991FB431675D657000672A1 /* LabLackeyIcon@2x.png */,
 				C9DA092A1620D8B700CF2E2E /* Images */,
 				C9DA08E91620BA0C00CF2E2E /* Exp */,
 				C9DA09131620BA0D00CF2E2E /* ExpTests */,
@@ -348,6 +354,8 @@
 				C97655E21647201D00DFA017 /* leftright.png in Resources */,
 				C9ECA6BB16519C170082A79F /* oldnew.png in Resources */,
 				C9EDB0CD165BF78000E18178 /* config.json in Resources */,
+				C991FB441675D657000672A1 /* LabLackeyIcon@2x.png in Resources */,
+				C991FB481675D73F000672A1 /* LabLackeyIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
