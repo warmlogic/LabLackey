@@ -95,6 +95,7 @@
 }
 
 - (void) reset{
+    // assumes study is first and test is second
     EXExperimentPhase *study = self.experimentPhases[0];
     EXExperimentPhase *test = self.experimentPhases[1];
     
@@ -103,7 +104,7 @@
     // filter the stimuli
     NSIndexSet *totalStimulusRange = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, totalNumberOfStimuliNeeded)];
     self.selectedStimuli = [[NSArray randomizedArrayFromArray:self.stimuli] objectsAtIndexes:totalStimulusRange];
-        
+    
     NSIndexSet *studyStimulusRange = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, study.nTrials)];
     NSArray *studySet = [_selectedStimuli objectsAtIndexes:studyStimulusRange];
     [study setStimulusSet: [NSArray randomizedArrayFromArray:studySet]];
@@ -115,6 +116,15 @@
     _currentPhaseIndex = 0;
     
     stimulusCounter = 0;
+    
+    // if there are more than 2 phases, randomly select stimuli for those phases. NB that this won't be a controlled selection as in study and test phases.
+    if (self.experimentPhases.count > 2) {
+        for (int i=2; i<_experimentPhases.count;i++){
+            EXExperimentPhase *phase = (EXExperimentPhase *)_experimentPhases[i];
+            NSIndexSet *selectedStimuli = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, phase.nTrials)];
+            phase.stimulusSet = [[NSArray randomizedArrayFromArray:self.stimuli] objectsAtIndexes:selectedStimuli];
+        }
+    }
 }
 
 -(void)logResponse:(EXTrialData *)response {
