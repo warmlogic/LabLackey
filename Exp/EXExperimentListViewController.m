@@ -30,9 +30,7 @@
 
 - (void)loadConfiguration
 {
-    // configuration file located in iTunes file sharing, app's Directory folder.
-    // must be named: "experimentName config.json".
-    // NB: experimentName is hardcoded as "Recognition Memory Experiment" in EXExperimentListViewController.
+    // configuration file "config.json" is installed using iTunes File Sharing, in the app's Documents directory.
     NSString *directory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     NSString *fileName = [@"config" stringByAppendingPathExtension:@"json"];
     NSString *configFile = [directory stringByAppendingPathComponent:fileName];
@@ -48,7 +46,13 @@
         config = [NSData dataWithContentsOfFile:configFile];
     }
     else {
+        // if we don't find the user-supplied config file in the Documents directory
         NSLog(@"Config file not found at: %@",configFile);
+        
+        // use the one included in the app bundle so we can compile and run
+        configFile = [[NSBundle mainBundle] pathForResource:@"config" ofType:@"json"];
+        NSLog(@"Using default config file: %@",configFile);
+        config = [NSData dataWithContentsOfFile:configFile];
     }
     
     // turn the entire config file into data we can read
@@ -73,6 +77,7 @@
     
     self.detailViewController = (EXExperimentViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
+    // hardcoded
     self.title = @"Experiments";
 }
 
@@ -167,7 +172,8 @@
         experiment.experimentStartTime = [NSDate date];
         
         // debug
-        NSLog(@"experimentData: %@", experiment.experimentData);
+        //NSLog(@"experimentData: %@", experiment.experimentData);
+        NSLog(@"Experiment chosen: %@", experiment.name);
         
         [[segue destinationViewController] setExperiment:experiment];
     }

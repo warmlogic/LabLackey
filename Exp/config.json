@@ -1,19 +1,9 @@
-{"Recognition Memory Experiment": {
+[{
+    "name": "Recognition Memory Experiment",
     "type": "recognition",
     "phases": ["study", "test"],
-    "default": {
-        "instructions": "This is what is going to happen!",
-        "responseRequired": "NO",
-        "nTrials": 5,
-        "fixationDuration": 0.5,
-        "fixationJitter": 0.0,
-        "interStimulusInterval": 0.5,
-        "interStimulusIntervalJitter": 0.0,
-        "stimulusDuration": 1.0,
-        "stimulusJitter": 0.0
-        },
     "study": {
-        "instructions": "Study phase instructions:\n\nRemember the folloiwng list of items.",
+        "instructions": "Study phase instructions:\n\nRemember the following list of items.",
         "responseRequired": "NO",
         "nTrials": 5,
         "fixationDuration": 0.5,
@@ -34,4 +24,32 @@
         "stimulusDuration": 1.0,
         "stimulusJitter": 0.0
         }
-}}
+},
+{
+    "name": "Example Experiment",
+    "type": "recognition",
+    "phases": ["one", "two"],
+    "one": {
+        "instructions": "Study phase instructions:\n\nRemember the following list of items.",
+        "responseRequired": "NO",
+        "nTrials": 5,
+        "fixationDuration": 0.5,
+        "fixationJitter": 0.0,
+        "interStimulusInterval": 0.5,
+        "interStimulusIntervalJitter": 0.5,
+        "stimulusDuration": 1.0,
+        "stimulusJitter": 0.0
+        },
+    "two": {
+        "instructions": "Test phase instructions:\n\nDecide whether each upcoming item is\nOld: was on the prior list, or\nNew: was not on the prior list.",
+        "responseRequired": "YES",
+        "nTrials": 10,
+        "fixationDuration": 0.5,
+        "fixationJitter": 0.0,
+        "interStimulusInterval": 0.5,
+        "interStimulusIntervalJitter": 0.5,
+        "stimulusDuration": 1.0,
+        "stimulusJitter": 0.0
+        }
+}]
+
