@@ -73,7 +73,6 @@ Features to implement:
   - Initial experiment description/introduction screen.
     - This would have the "Back" button in case you didn't want to start that experiment.
     - Then the "Back" button should be removed from any phase instruction screen.
-  - Icon!
 
 
 Other experimental paradigm ideas:
@@ -87,3 +86,5 @@ Links:
 ====
 
 Project page: https://github.com/warmlogic/LabLackey
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/23629df4d2671acbd34464795b84c344 "githalytics.com")](http://githalytics.com/warmlogic/LabLackey)
