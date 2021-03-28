@@ -86,5 +86,3 @@ Links:
 ====
 
 Project page: https://github.com/warmlogic/LabLackey
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/23629df4d2671acbd34464795b84c344 "githalytics.com")](http://githalytics.com/warmlogic/LabLackey)
